@@ -1,0 +1,124 @@
+﻿       .accordion {
+            width: 450px;
+        }
+        
+     .accordionHeader {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #2E4d7B;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        
+        .accordionHeaderSelected {
+            border: 1px solid #2F4F4F;
+            color: white;
+            background-color: #5078B3;
+            font-family: Arial, Sans-Serif;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        
+        .accordionContent {
+            background-color: #D3DEEF;
+            border: 1px dashed #2F4F4F;
+            border-top: none;
+            padding: 5px;
+            padding-top: 10px;
+
+        }
+
+.modalBackground {
+    background-color:Gray;
+    filter:alpha(opacity=70);
+    opacity:0.7;
+}
+ 
+.modalPopup {
+    background-color:#ffffdd;
+    border-width:3px;
+    border-style:solid;
+    border-color:Gray;
+    padding:3px;
+    width:500px;
+}
+
+        .calField {
+            float: left;
+            display: block;
+            position: relative;
+            margin: 20px;
+            padding: 3px 40px 3px 10px;
+            width: 100px;
+            border: 1px solid #808080;
+            border-radius: 5px;
+        }
+
+        .show, .on, .off,.delete {
+            position: relative;
+            top: 22px;
+            margin-right: 10px;
+        }
+
+        .testField input {
+            border: 0;
+            width: 100px;
+        }
+
+        .calendarIcon {
+            display: block;
+            position: absolute;
+            right: -25px;
+            top: 3px;
+            width: 21px;
+            height: 19px;
+            background: url('/Calendar/Images/Field.png') no-repeat;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            padding: 20px;
+            left: 100px;
+            top: 0;
+            background: orange;
+        }
+
+.autocomplete_completionList
+{   
+
+    margin : 0px!important;
+    background-color : inherit;
+    color : windowtext;
+    border : buttonshadow;
+    border-width : 1px;
+    border-style : solid;
+    overflow :auto;
+    height : 200px;
+    text-align : left; 
+}
+
+.linkClear, .linkSave, .linkFile
+{
+    background: url(/image/button_icons.png) no-repeat;
+    padding-left:20px;
+}
+
+.linkClear{
+    background-position: -452px -2848px;
+}
+
+.linkSave{
+     background-position: -103px -3198px;
+}
+
+.linkFile{
+    background-position: -1303px -1845px;
+}

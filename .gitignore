@@ -259,3 +259,9 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/TView_2013/TView/Web.Release.config
+/TView_2013/TView/Web.Debug.config
+/TView/TView/Properties/PublishProfiles/1.pubxml
+/TView/TView/Properties/PublishProfiles/test.pubxml
+/TView/TView/Web.Release.config
+/TView/TView/Web.Debug.config
