@@ -1,0 +1,264 @@
+﻿SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `auctionitems`;
+CREATE TABLE `auctionitems` (
+  `lotID` int(11) DEFAULT NULL,
+  `description` blob,
+  `price` double DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `auctionproducts`;
+CREATE TABLE `auctionproducts` (
+  `lotID` int(11) DEFAULT NULL,
+  `ordinalNumber` int(11) DEFAULT NULL,
+  `productName` blob,
+  `tradeMark` blob,
+  `productRequirement_ordinalNumber` int(11) DEFAULT NULL,
+  `productRequirement_requirement` varchar(1024) DEFAULT NULL,
+  `equivalenceParam_ordinalNumber` int(11) DEFAULT NULL,
+  `equivalenceParam_name` varchar(1024) DEFAULT NULL,
+  `equivalenceParam_paramType` char(32) DEFAULT NULL,
+  `equivalenceParam_paramValue` varchar(1024) DEFAULT NULL,
+  `equivalenceParam_modifiable` char(5) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `competitivedocumentprovisioning`;
+CREATE TABLE `competitivedocumentprovisioning` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `deliveryTerm` datetime DEFAULT NULL,
+  `deliveryTerm2` datetime DEFAULT NULL,
+  `deliveryPlace` blob,
+  `deliveryProcedure` varchar(1028) DEFAULT NULL,
+  `www` blob,
+  `guarantee_procedure` blob,
+  `guarantee_settlementAccount` char(20) DEFAULT NULL,
+  `guarantee_personalAccount` char(30) DEFAULT NULL,
+  `guarantee_bik` char(9) DEFAULT NULL,
+  `guarantee_amount` double DEFAULT NULL,
+  `guarantee_currency_code` char(3) DEFAULT NULL,
+  `guarantee_currency_name` char(35) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `contactinfo`;
+CREATE TABLE `contactinfo` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `orgName` blob,
+  `orgFactAddress` blob,
+  `orgPostAddress` blob,
+  `contactEmail` varchar(256) DEFAULT NULL,
+  `contactPhone` char(30) DEFAULT NULL,
+  `contactFax` char(30) DEFAULT NULL,
+  `contactPerson_lastName` char(50) DEFAULT NULL,
+  `contactPerson_firstName` char(50) DEFAULT NULL,
+  `contactPerson_middleName` char(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `customerrequirements`;
+CREATE TABLE `customerrequirements` (
+  `lotID` int(11) DEFAULT NULL,
+  `quantity` blob,
+  `maxPrice` double DEFAULT NULL,
+  `customer_regNum` char(11) DEFAULT NULL,
+  `customer_fullName` blob,
+  `guaranteeApp_procedure` blob,
+  `guaranteeApp_settlementAccount` char(20) DEFAULT NULL,
+  `guaranteeApp_personalAccount` char(30) DEFAULT NULL,
+  `guaranteeApp_bik` char(9) DEFAULT NULL,
+  `guaranteeApp_amount` int(11) DEFAULT NULL,
+  `guaranteeContract_procedure` blob,
+  `guaranteeContract_settlementAccount` char(20) DEFAULT NULL,
+  `guaranteeContract_personalAccount` char(30) DEFAULT NULL,
+  `guaranteeContract_bik` char(9) DEFAULT NULL,
+  `guaranteeContract_isBail` char(1) DEFAULT NULL,
+  `guaranteeContract_amount` int(11) DEFAULT NULL,
+  `additionalInfo` blob,
+  `quantityContractPnir` int(11) DEFAULT NULL,
+  `kbk1` char(64) DEFAULT NULL,
+  `kbk2` char(64) DEFAULT NULL,
+  `kbk3` char(64) DEFAULT NULL,
+  `kbk4` char(64) DEFAULT NULL,
+  `kbk5` char(64) DEFAULT NULL,
+  `deliveryTerm` blob,
+  `deliveryPlace` blob,
+  `financeSource` blob,
+  `paymentCondition` blob,
+  KEY `lotID` (`lotID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `documentmetas`;
+CREATE TABLE `documentmetas` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `docDescription` blob,
+  `url` varchar(1024) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `documentrequirements`;
+CREATE TABLE `documentrequirements` (
+  `lotID` int(11) DEFAULT NULL,
+  `typeDoc` char(32) DEFAULT NULL,
+  `ordinalNumber` int(11) DEFAULT NULL,
+  `reqValue` blob,
+  `docName` varchar(1024) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `energyservice`;
+CREATE TABLE `energyservice` (
+  `lotID` int(11) NOT NULL,
+  `energyType` char(3) DEFAULT NULL,
+  `energyServiceEconomy` blob
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `ep`;
+CREATE TABLE `ep` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `code` char(20) DEFAULT NULL,
+  `name` char(20) DEFAULT NULL,
+  `url` char(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `lot`;
+CREATE TABLE `lot` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `ordinalNumber` int(3) DEFAULT NULL,
+  `subject` varchar(2000) DEFAULT NULL,
+  `currencyCode` char(3) DEFAULT NULL,
+  `currencyName` char(35) DEFAULT NULL,
+  `priceNotSet` char(5) DEFAULT NULL,
+  `quantityUndefined` char(5) DEFAULT NULL,
+  `infoProduct` blob,
+  `maxPriceReason` blob,
+  `appForm` blob,
+  PRIMARY KEY (`id`),
+  KEY `notificationID` (`notificationID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `modification`;
+CREATE TABLE `modification` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `initiativeType` char(1) DEFAULT NULL,
+  `modificationDate` datetime DEFAULT NULL,
+  `info` blob,
+  `authorityType` char(2) DEFAULT NULL,
+  `authorityName` char(100) DEFAULT NULL,
+  `desNumber` char(20) DEFAULT NULL,
+  `additionalInfo` blob
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `notification`;
+CREATE TABLE `notification` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationNumber` char(19) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `versionNumber` int(3) DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `orderName` varchar(2000) DEFAULT NULL,
+  `publishDate` datetime DEFAULT NULL,
+  `href` varchar(1024) DEFAULT NULL,
+  `region` char(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `notificationID` (`notificationID`),
+  KEY `notificationNumber` (`notificationNumber`),
+  KEY `region` (`region`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `notificationcommission`;
+CREATE TABLE `notificationcommission` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `p1Date` datetime DEFAULT NULL,
+  `p2Date` datetime DEFAULT NULL,
+  `p3Date` datetime DEFAULT NULL,
+  `p1Place` blob,
+  `p2Place` blob,
+  `p3Place` blob,
+  `signTerm` int(11) DEFAULT NULL,
+  KEY `notificationID` (`notificationID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `notificationfeatures`;
+CREATE TABLE `notificationfeatures` (
+  `lotID` int(11) DEFAULT NULL,
+  `prefValue` int(3) DEFAULT NULL,
+  `placementFeature_code` int(3) DEFAULT NULL,
+  `placementFeature_name` varchar(350) DEFAULT NULL,
+  KEY `lotID` (`lotID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `notificationplacement`;
+CREATE TABLE `notificationplacement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `deliveryTerm` blob,
+  `deliveryPlace` blob,
+  `guaranteeApp_procedure` blob,
+  `guaranteeApp_settlementAccount` char(20) DEFAULT NULL,
+  `guaranteeApp_personalAccount` char(30) DEFAULT NULL,
+  `guaranteeApp_bik` char(9) DEFAULT NULL,
+  `guaranteeContract_procedure` blob,
+  `guaranteeContract_settlementAccount` char(20) DEFAULT NULL,
+  `guaranteeContract_personalAccount` char(30) DEFAULT NULL,
+  `guaranteeContract_bik` char(9) DEFAULT NULL,
+  `guaranteeContract_isBail` char(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `initiatorOrgRole` char(1) DEFAULT NULL,
+  `placerOrgType` char(1) DEFAULT NULL,
+  `placer_regNum` char(11) DEFAULT NULL,
+  `placer_fullName` blob,
+  `initiator_regNum` char(11) DEFAULT NULL,
+  `initiator_fullName` blob,
+  KEY `notificationID` (`notificationID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `placingway`;
+CREATE TABLE `placingway` (
+  `notificationID` int(11) DEFAULT NULL,
+  `notificationType` char(3) DEFAULT NULL,
+  `code` char(3) DEFAULT NULL,
+  `name` varchar(500) DEFAULT NULL,
+  KEY `notificationID` (`notificationID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `lotID` int(11) DEFAULT NULL,
+  `code` char(20) DEFAULT NULL,
+  `name` varchar(1024) DEFAULT NULL,
+  KEY `lotID` (`lotID`),
+  KEY `code` (`code`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
