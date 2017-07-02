@@ -265,3 +265,7 @@ __pycache__/
 /TView/TView/Properties/PublishProfiles/test.pubxml
 /TView/TView/Web.Release.config
 /TView/TView/Web.Debug.config
+/UEBase/UEBase/Properties/PublishProfiles/n.pubxml
+/UEBase/UEBase/Web.Release.config
+/UEBase/UEBase/Web.Debug.config
+/UEBase/UEBase/Scripts/jquery-1.9.1.min.map
